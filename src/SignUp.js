@@ -17,7 +17,7 @@ function SignUp() {
           const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         dispatch(login(userCredential.user));
         alert("Signup was successful! Click OK to continue.");
-        navigate("/");  // Use the navigate function
+        navigate("/home");  // Use the navigate function
       } catch (error) {
         console.error("Error signing up:", error);
         alert(`Error signing up: ${error.message}`);  // Show the exact error message

@@ -17,7 +17,7 @@ function Home() {
         await auth.signOut(); // Use the signOut method directly on the auth instance
         dispatch(logout());
         alert("Signed out successfully!");
-        navigate("/signin"); // Redirect to the sign-in page
+        navigate("/"); // Redirect to the sign-in page
       } catch (error) {
         console.error("Error signing out:", error);
         alert(`Error signing out: ${error.message}`); // Show the exact error message

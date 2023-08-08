@@ -22,10 +22,10 @@ function SignIn() {
         };
         dispatch(login(userData));
         alert("Signing in. Click OK to continue.");
-        navigate("/");  // Use the navigate function
+        navigate("/home");  // Use the navigate function
       } catch (error) {
         console.error("Error signing in:", error);
-        alert("Error signing in: ${error.message}");  // Show error alert
+        alert(`Error signing in: ${error.message}`); // Show error alert
       }
     };
 

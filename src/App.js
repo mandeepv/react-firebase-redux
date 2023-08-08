@@ -6,6 +6,7 @@ import { login, logout } from './userSlice';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
 import Home from './Home';
+import LandingPage from './LandingPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -29,7 +30,8 @@ function App() {
       <Routes>
       <Route path="/signup" element={<SignUp />} />
       <Route path="/signin" element={<SignIn />} />
-      <Route path="/" element={<Home />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/" element={<LandingPage />} />
       </Routes>
     </Router>
   );
