@@ -1,7 +1,7 @@
 import { auth } from './firebase';
 import { useDispatch } from 'react-redux';
 import { login } from './userSlice';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from '@firebase/auth';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function SignUp() {

@@ -1,7 +1,7 @@
 import { auth } from './firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from './userSlice';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from '@firebase/auth';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function SignIn() {
