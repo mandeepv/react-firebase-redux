@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 function SignIn() {
     const dispatch = useDispatch();
     const navigate = useNavigate(); // Call the hook
-    const user = useSelector(state => state.user);
+    const user = useSelector(state => state.user.user);
 
     const handleSignIn = async (e) => {
       e.preventDefault();

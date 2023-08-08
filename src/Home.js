@@ -4,12 +4,14 @@ import { auth } from './firebase'; // Keep using your auth instance
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function Home() {
-    const user = useSelector(state => state.user);
+    const user = useSelector(state => state.user.user);
     const dispatch = useDispatch();
     const navigate = useNavigate(); // Get the navigate function
 
     if (!user) {
-      return <div>Please log in to view your details.</div>;
+      return <div>Please log in to view your details.
+        <button onClick={() => navigate("/signin")}>Sign In</button>
+      </div>;
     }
   
     const handleSignOut = async () => {
@@ -30,11 +32,9 @@ function Home() {
                 {user && (
                     <div>
                         <pre>{JSON.stringify(user, null, 2)}</pre>
+                        <button onClick={handleSignOut}>Sign Out</button>
                     </div>
                 )}
-            </div>
-            <div>
-                <button onClick={handleSignOut}>Sign Out</button>
             </div>
         </div>
     );
