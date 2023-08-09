@@ -1,13 +1,14 @@
 import { auth } from './firebase';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from './userSlice';
 import { createUserWithEmailAndPassword } from '@firebase/auth';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { logout } from './userSlice';
 
 function SignUp() {
     const dispatch = useDispatch();
     const navigate = useNavigate(); // Call the hook
-
+    const user = useSelector(state => state.user.user);
     const handleSignUp = async (e) => {
       e.preventDefault();
       const email = e.target.email.value;
@@ -23,7 +24,25 @@ function SignUp() {
         alert(`Error signing up: ${error.message}`);  // Show the exact error message
       }
     };
-  
+    
+    const handleSignOut = async () => {
+      try {
+        await auth.signOut(); // Use the signOut method directly on the auth instance
+        dispatch(logout());
+        alert("Signed out successfully!");
+        navigate("/"); // Redirect to the sign-in page
+      } catch (error) {
+        console.error("Error signing out:", error);
+        alert(`Error signing out: ${error.message}`); // Show the exact error message
+      }
+    };
+
+    if (user) {
+      return <div>You are already signed in
+        <button onClick={() => navigate("/home")}>GO TO HOME</button>
+        <button onClick={handleSignOut}>SIGNOUT</button>
+      </div>;
+    }
     return (
       <div>
         <form onSubmit={handleSignUp}>
