@@ -7,7 +7,7 @@ import SignUp from './SignUp';
 import SignIn from './SignIn';
 import Home from './Home';
 import LandingPage from './LandingPage';
-
+import NotFoundPage from './NotFoundPage';
 function App() {
   const dispatch = useDispatch();
 
@@ -32,6 +32,7 @@ function App() {
       <Route path="/signin" element={<SignIn />} />
       <Route path="/home" element={<Home />} />
       <Route path="/" element={<LandingPage />} />
+      <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );
